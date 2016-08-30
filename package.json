@@ -12,6 +12,8 @@
     "chai": "^3.5.0",
     "eslint": "^3.4.0",
     "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-watch": "^4.3.9",
     "mocha": "^3.0.2"
   },
   "dependencies": {
