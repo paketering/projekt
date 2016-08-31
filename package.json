@@ -9,6 +9,7 @@
   "author": "AJK15G",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.14.3",
     "chai": "^3.5.0",
     "eslint": "^3.4.0",
     "gulp": "^3.9.1",
