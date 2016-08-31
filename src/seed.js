@@ -1,5 +1,8 @@
+// File to be included in server.js. Everytime server starts file checks if the database contains these four objects. If not object is added to database. That way there is always four samples to work with during development.
+
 let Subject = require('./models/model.js');
 
+// Makes for examples of objects in database.
 var react = new Subject();
 react.name = 'ReactJS';
 react.prio = 1;
@@ -28,6 +31,7 @@ mongo.status = 1;
 mongo.links = ["http://mongoosejs.com/docs/subdocs.html"];
 mongo.notes = "Franzen portland authentic, semiotics thundercats gochujang tofu. Try-hard actually fingervore ae. sadfkjsldk s ldkfjsldkf.";
 
+// Loops through all the objects. Check if they exist in database. If not, adds object to database.
 let subjects = [react,grunt,jquery,mongo];
 subjects.forEach((subject,index)=>{
    User.find({name:subject.name},(err, subjects)=>{
