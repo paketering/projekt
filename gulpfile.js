@@ -16,7 +16,6 @@ var rename = require('gulp-rename');   // för att behålla snygga versionen av 
 // uglify,build task för färdig produkt,jsdoc(dokumention verktyg)
 
 gulp.task('sass', function() {
-
   return gulp.src('app/sass/style.scss')
     .pipe(maps.init()) // startar source maps
     .pipe(sass())
@@ -40,9 +39,6 @@ gulp.task('dev', ['sass','browserify','browser-sync'],function() { //kollar efte
   gulp.watch('app/sass/*.scss', ['sass']);
   gulp.watch('app/**/*.js', ['browserify']);
   gulp.watch('public/index.html').on('change',browserSync.reload);
-
-
-
 });
 
 gulp.task('browser-sync', function() {//inställningar för livereload
@@ -53,10 +49,6 @@ gulp.task('browser-sync', function() {//inställningar för livereload
   });
 });
 
-
-
-
-
 gulp.task("uglify", function() { //tar bort whitespace,preformance related(not necisary for development)
   return gulp.src("public/scripts/main.js")
     .pipe(uglify())
@@ -64,9 +56,7 @@ gulp.task("uglify", function() { //tar bort whitespace,preformance related(not n
     .pipe(gulp.dest('public/scripts'));
 });
 
-
 gulp.task('sassp', function() {
-
   return gulp.src('app/sass/style.scss')
     .pipe(maps.init()) // startar source maps
     .pipe(sass({outputStyle:'compressed'}))// minifierar css koden för dist mappen och körs i gulp.task production
@@ -76,28 +66,11 @@ gulp.task('sassp', function() {
 
 });
 
-
-
 gulp.task("production", ['uglify', 'sassp'],function(){ //lägger ihop fler tasks
-  return gulp.src(['public/scripts/main.min.js','public/index.html','public/css/style.css'],{base:'./public'})  // compila ihop hella appen i en färdig mapp 'dist'
-                    .pipe(gulp.dest('dist'));
+  return gulp.src(['public/scripts/main.min.js','public/index.html','public/css/style.css'],{base:'./public'})
+   .pipe(gulp.dest('dist'));  //compila ihop hella appen i en färdig mapp 'dist'
 });
 
 gulp.task('clean',function(){ // delita all filer som var compilade by gulp
   del(['dist','public/css/style.css*','public/scripts/main*.js*']);
-})
-
-
-
-
-
-
-
-gulp.task('html', function() {
-  gulp.src('public/html/*.html')
-    .pipe(html())
-    .pipe(gulp.dest('public'))
-    .pipe(browserSync.reload({stream:true}))
 });
-
-gulp.task('start', ['browser-sync', 'watch']);
