@@ -1,1 +1,0 @@
-{"version":3,"sources":["saman.js","script.js"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;ACHA;AACA;AACA;AACA","file":"concat.js","sourcesContent":["var msg = \"hejsan\";\n\nconsole.log(msg);\n","var name = \"AJK15G\";\n\nconsole.log(name);\n"],"sourceRoot":"/source/"}
