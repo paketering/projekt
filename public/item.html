@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+	<head>
+
+		<title></title>
+		<meta charset="utf-8" />
+		<link href="css/style.css" rel="stylesheet" />
+    <script src="scripts/main.js"></script>
+
+	</head>
+<body>
+<p>tvtfvtfr</p>
+
+	<div ng-app="app">
+	<div ng-controller="MainController">
+			<div ng-repeat="sub in subject track by $index">
+				<h1>{{sub.name}}</h1><h5>Prio {{sub.prio}}</h5>
+				<p>{{sub.links}}</p>
+				<p>{{sub.note}}</p>
+				<button ng-click="open()">Edit</button>
+			</div>		
+			<div ng-show="visa" ng-repeat="sub in subject track by $index">
+				<h1 ng-hide="sub.editName"  ng-click="sub.editName = !sub.editName"><input type="text" name="" ng-show="sub.editName" ng-blur="editSub($index)" ng-model="sub.name" >{{sub.name}}</h1>
+				<h5 ng-hide="sub.editPrio" ng-click="sub.editPrio =!sub.editPrio">Prio {{sub.prio}}</h5><input type="text" name="" ng-show="sub.editPrio" ng-blur="editSub($index)" ng-model="sub.prio">
+				<p ng-hide="sub.editLinks" ng-click="sub.editLinks = !sub.editLinks ">{{sub.links}}</p><input type="text" name="" ng-show="sub.editLinks" ng-blur="editSub($index)" ng-model="sub.links">
+				<p ng-hide="sub.editNote" ng-click="sub.editNote=!sub.editNote">{{sub.note}}</p><textarea ng-show="sub.editNote" ng-blur="editSub($index)" ng-model="sub.note"></textarea>
+				<button  ng-click="deleteSub($index)"></button>
+			</div>
+			
+	</div>
+	</div>
+</body>
+</html>

@@ -10,33 +10,36 @@
     <script src="scripts/main.js"></script>
 
 	</head>
-
+<body>
 	<div ng-app="app">
 	<div ng-controller="MainController">
 		<h1>livereload works</h1>
-		<h1>{{ message }}</h1>
 		<form>
 			<label>Lägg till nytt ämne</label>
 			<br>
-			<input type="text" name="" id="">
+			<input type="text" name="" id="" ng-model="name">
 			<label>Det har prioritet:</label>
-			<input type="radio" name="" value=""> 1
-            <input type="radio" name="" value=""> 2
-            <input type="radio" name="" value=""> 3
+			<input type="text" name="" ng-model="prio">
+			  <label>Det har status:</label>
+            <input type="text" name="" id="" ng-model="status">
+            <input type="" name="" ng-model="links" placeholder="Links">
+            <textarea ng-model="notes"></textarea>
+            <input type="submit" name="" value="Lägg till" ng-click="add()">
 		</form>
-			<table >
+			<table  >
 				<tr>
 					<th>Vill jag kunna</th>
 					<th>Håller på med</th>
 					<th>Har lärt mig</th>
 				</tr>
 				<tr>
-					<td><input type="submit" name="" id="button" value="React"></td>
-					<td><input type="submit" name="" id="button" value="Jasmine"></td>
+					<td><input  type="submit" name="" id="button" value="React" ng-click="" ng-hide=""></td>
+					<td><input type="submit" name="" id="button2" value="Jasmine"></td>
 
 				</tr>
-			</table>		
+			</table>	
+			
 	</div>
 	</div>
-
+</body>
 </html>

@@ -4,7 +4,7 @@ body {
 
 }
 h1{
-	color:blue;
+	color:green;
 }
 
 table, th, td {
@@ -17,7 +17,7 @@ th, td {
 table{
 	 margin-top:10px;
 }
-#button{
+#button, #button2{
 	 background-color: #4169E1; /* Green */
     border: none;
     color: white;
@@ -26,4 +26,7 @@ table{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+}
+#button2{
+	 background-color: #008000; /* Green */
 }
