@@ -2,7 +2,7 @@
   "name": "paketering",
   "version": "1.0.0",
   "description": "App for testing packeting and stuff",
-  "main": "src/server.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
