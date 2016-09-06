@@ -43,9 +43,10 @@ gulp.task('dev', ['sass','browserify','browser-sync'],function() { //kollar efte
 
 gulp.task('browser-sync', function() {//inställningar för livereload
   browserSync({
-    server: {
-      baseDir: "public"//vart den ska leta efter index.html filen
-    }
+   //  server: {
+   //    baseDir: "public"//vart den ska leta efter index.html filen
+   //  }
+   proxy:'localhost:3000'
   });
 });
 
