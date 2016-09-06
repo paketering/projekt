@@ -5,7 +5,7 @@ var uglify = require('gulp-uglify');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var browserSync = require('browser-sync');
-var  maps = require('gulp-sourcemaps'); // map orientering för leta upp cod i dev-tool
+var maps = require('gulp-sourcemaps'); // map orientering för leta upp cod i dev-tool
 var del = require('del');             // radera filer
 var rename = require('gulp-rename');   // för att behålla snygga versionen av concat när man gör uglify
 
