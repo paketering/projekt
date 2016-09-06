@@ -11,7 +11,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(parser.json());
 app.use('/api', api);
 
-app.get('/*', (req, res,next)=>{
+require('./src/database');
+require('./src/models/model');
+require('./src/seed');
+
+app.get('/', (req, res,next)=>{
+   res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
+app.get('/item', (req, res,next)=>{
    res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
