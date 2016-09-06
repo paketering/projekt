@@ -11,8 +11,32 @@
 
 	</head>
 
-	<body>
-	<h1>livereload works</h1>
-	</body>
+	<div ng-app="app">
+	<div ng-controller="MainController">
+		<h1>livereload works</h1>
+		<h1>{{ message }}</h1>
+		<form>
+			<label>Lägg till nytt ämne</label>
+			<br>
+			<input type="text" name="" id="">
+			<label>Det har prioritet:</label>
+			<input type="radio" name="" value=""> 1
+            <input type="radio" name="" value=""> 2
+            <input type="radio" name="" value=""> 3
+		</form>
+			<table >
+				<tr>
+					<th>Vill jag kunna</th>
+					<th>Håller på med</th>
+					<th>Har lärt mig</th>
+				</tr>
+				<tr>
+					<td><input type="submit" name="" id="button" value="React"></td>
+					<td><input type="submit" name="" id="button" value="Jasmine"></td>
+
+				</tr>
+			</table>		
+	</div>
+	</div>
 
 </html>
