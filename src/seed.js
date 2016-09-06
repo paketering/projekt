@@ -1,3 +1,5 @@
+'use strict'
+
 // File to be included in server.js. Everytime server starts file checks if the database contains these four objects. If not object is added to database. That way there is always four samples to work with during development.
 
 let Subject = require('./models/model.js');
@@ -34,7 +36,7 @@ mongo.notes = "Franzen portland authentic, semiotics thundercats gochujang tofu.
 // Loops through all the objects. Check if they exist in database. If not, adds object to database.
 let subjects = [react,grunt,jquery,mongo];
 subjects.forEach((subject,index)=>{
-   User.find({name:subject.name},(err, subjects)=>{
+   Subject.find({name:subject.name},(err, subjects)=>{
       if(!err && !subjects.length){
          Subject.create(subject);
          console.log(subject.name);
