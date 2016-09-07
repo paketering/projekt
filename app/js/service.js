@@ -8,7 +8,7 @@ module.exports = angular.module('app.service',[]).service('appService', function
 			url: '/api/subject'
 		}).then(function successCallback(response) {
 			//console.log(response.data);
-		    callback(response.data.weeks);
+		    callback(response.data.allData);
 		}, function errorCallback(response) {
 		});
 	}

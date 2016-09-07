@@ -20,6 +20,8 @@ router.get('/subject', function(req, res, next) {
 
 });
 
+
+
 //get request på api/subject/id
 router.get('/subject/:id', function(req, res, next) {
 
