@@ -35,8 +35,8 @@ mongo.notes = "Franzen portland authentic, semiotics thundercats gochujang tofu.
 
 // Loops through all the objects. Check if they exist in database. If not, adds object to database.
 let subjects = [react,grunt,jquery,mongo];
-subjects.forEach((subject,index)=>{
-   Subject.find({name:subject.name},(err, subjects)=>{
+subjects.forEach(function(subject,index){
+   Subject.find({name:subject.name},function(err, subjects){
       if(!err && !subjects.length){
          Subject.create(subject);
          console.log(subject.name);
