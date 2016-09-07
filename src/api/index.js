@@ -37,7 +37,6 @@ router.delete('/delete/:id', function(req, res, next) {
 		res.json(deleted);
 
 	});
-
 });
 
 router.post('/post', function(req, res, next) {
@@ -62,7 +61,6 @@ router.post('/post', function(req, res, next) {
 		res.end();
 
   });
-
 });
 
 router.put('/update', function(req, res, next) {
@@ -88,7 +86,6 @@ router.put('/update', function(req, res, next) {
       res.json(updated);
 
 	});
-
 });
 
 module.exports = router;
