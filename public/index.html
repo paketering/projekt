@@ -37,7 +37,6 @@
 				</tr>
 
 			</table>	
-
 					<ul ng-repeat="sub in subject| filter:search" ng-if="sub.prio == 1">
 						<li><button ng-click="button = !button">{{sub.name}}</button></li>
 						<li ng-show="button">

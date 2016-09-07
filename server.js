@@ -15,11 +15,13 @@ require('./src/database');
 require('./src/models/model');
 require('./src/seed');
 
-app.get('/*', function(req, res,next){
+
+app.get('/', function(req, res,next){
+
    res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-app.listen(PORT,(err)=>{
+app.listen(PORT,function(err){
    if(err){
       console.log('Failed to connect');
    }
