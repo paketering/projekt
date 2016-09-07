@@ -15,7 +15,8 @@ require('./src/database');
 require('./src/models/model');
 require('./src/seed');
 
-app.get('/*', (req, res,next)=>{
+//app.get('/*', (req, res,next)=>{
+  app.get('/*', function(req, res,next){
    res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 

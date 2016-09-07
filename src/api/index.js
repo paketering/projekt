@@ -5,7 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 
 	console.log("Detta är api routern");
-	res.json({name: "Andreas"});
+	res.send("Detta är api routern");
 
 });
 
@@ -17,7 +17,6 @@ router.get('/subject', function(req, res, next) {
 		res.json(allData);
 
 	});
-
 });
 
 //get request på api/subject/id
@@ -28,7 +27,6 @@ router.get('/subject/:id', function(req, res, next) {
 		res.json(idData);
 
 	});
-
 });
 
 //delete på api/delete/id
@@ -36,7 +34,7 @@ router.delete('/delete/:id', function(req, res, next) {
 
 	Subject.remove({_id:req.params.id}).then(function(deleted) {
 
-		res.end();
+		res.json(deleted);
 
 	});
 
@@ -44,60 +42,53 @@ router.delete('/delete/:id', function(req, res, next) {
 
 router.post('/post', function(req, res, next) {
 
+	var name = req.body.name;
+	var prio = parseInt(req.body.prio);
+	var status = parseInt(req.body.status);
+	var links = [req.body.links];
+	var notes = req.body.notes;
+
 	Subject.create({
 
-		name: req.body.name
-		//prio: parseInt(req.body.prio),
-		//status: parseInt(req.body.status),
-    //notes: req.body.notes
+		name: name,
+		prio: prio,
+		status: status,
+		links: links,
+		notes: notes
 
-	});
+	}).then(function(posted) {
 
-  res.redirect('/');
+    res.json(posted);
+		res.end();
+
+  });
 
 });
 
-/*
-
-router.put('/edit', function(req, res, next) {
+router.put('/update', function(req, res, next) {
 
 	console.log(req.body);
 
-	var id = req.body.subjectId;
-	var name = req.body.name;
-	var prio = parseInt(req.body.prio);
-  var status = parseInt(req.body.status);
-  var notes = req.body.notes;
+  var id = req.body._id;
+  var obj = req.body;
 
-	Subject.findByIdAndUpdate(id, { $set:
+	/*
+	var testId = "57ceb48a966f73a1200f9780";
+	var testObj = {
+		name: "ReactJS",
+		status: 3,
+		prio: 1
+	}
+	*/
 
-		{
-			name: name,
-			prio: prio,
-      status: status,
-      notes: notes
-		}
-
-	}, function (err, tank) {
+	Subject.findByIdAndUpdate(id, obj, function (err, updated) {
 
   		if (err) return handleError(err);
 
-  		res.redirect('/edit');
+      res.json(updated);
 
 	});
 
 });
-
-router.post('/addlink', function(req, res, next) {
-
-	Subject.update({_id:req.body.subjectId}, {$push: {links: req.body.link}}).then(function(update) {
-
-		res.end();
-
-	});
-
-});
-
-*/
 
 module.exports = router;

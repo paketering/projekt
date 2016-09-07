@@ -1,1 +1,1 @@
-{"version":3,"file":"style.css","sources":["style.scss"],"sourcesContent":["body {\r\n\r\n  margin: 0px;\r\n\r\n}\r\nh1{\r\n\tcolor:blue;\r\n}\r\n"],"mappings":"AAAA,AAAA,IAAI,CAAC;EAEH,MAAM,EAAE,GAAI,GAEb;;AACD,AAAA,EAAE,CAAA;EACD,KAAK,EAAC,IAAK,GACX","names":[],"sourceRoot":"/source/"}
+{"version":3,"file":"style.css","sources":["style.scss"],"sourcesContent":["body {\n\n  margin: 0px;\n\n}\nh1{\n\tcolor:blue;\n}\n"],"mappings":"AAAA,AAAA,IAAI,CAAC;EAEH,MAAM,EAAE,GAAI,GAEb;;AACD,AAAA,EAAE,CAAA;EACD,KAAK,EAAC,IAAK,GACX","names":[],"sourceRoot":"/source/"}
