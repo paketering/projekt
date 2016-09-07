@@ -12,34 +12,34 @@
 	</head>
 <body>
 	<div ng-app="app">
-	<div ng-controller="MainController">
-		<h1>livereload works</h1>
-		<form>
-			<label>Lägg till nytt ämne</label>
-			<br>
-			<input type="text" name="" id="" ng-model="name">
-			<label>Det har prioritet:</label>
-			<input type="text" name="" ng-model="prio">
-			  <label>Det har status:</label>
-            <input type="text" name="" id="" ng-model="status">
-            <input type="" name="" ng-model="links" placeholder="Links">
-            <textarea ng-model="notes"></textarea>
-            <input type="submit" name="" value="Lägg till" ng-click="add()">
-		</form>
-			<table  >
+		<div ng-controller="MainController">
+			<h1>livereload works</h1>
+			<form>
+				<label>Lägg till nytt ämne</label>
+				<br>
+				<input type="text" name="" id="" ng-model="name">
+				<label>Det har prioritet:</label>
+				<input type="text" name="" ng-model="prio">
+				  <label>Det har status:</label>
+	            <input type="text" name="" id="" ng-model="status">
+	            <input type="" name="" ng-model="links" placeholder="Links">
+	            <textarea ng-model="notes"></textarea>
+	            <input type="submit" name="" value="Lägg till" ng-click="add()">
+			</form>
+			<table>
 				<tr>
 					<th>Vill jag kunna</th>
 					<th>Håller på med</th>
 					<th>Har lärt mig</th>
 				</tr>
 				<tr>
-					<td><input  type="submit" name="" id="button" value="React" ng-click="" ng-hide=""></td>
-					<td><input type="submit" name="" id="button2" value="Jasmine"></td>
+					<td ng-repeat="sub in subject track by $index | filter:search" ng-if="subject == 1"><input  type="submit" name="" id="button" value="React" ng-click="" ng-hide="">{{sub.name}}</td>
+					<td ng-repeat="sub in subject track by $index | filter:search" ng-if="subject == 2">{{sub.name}}<input type="submit" name="" id="button2" value="Jasmine"></td>
+					<td ng-repeat="sub in subject track by $index | filter:search" ng-if="subject == 3">{{sub.name}}<input type="submit" name="" id="button2" value="Jasmine"></td>
 
 				</tr>
 			</table>	
-			
-	</div>
+		</div>
 	</div>
 </body>
 </html>
