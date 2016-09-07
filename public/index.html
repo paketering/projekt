@@ -11,10 +11,10 @@
 
 	</head>
 <body>
+<h1>livereload works</h1>
 	<div ng-app="app">
 		<div ng-controller="MainController">
-			<h1>livereload works</h1>
-			<form>
+		<form>
 				<label>Lägg till nytt ämne</label>
 				<br>
 				<input type="text" name="" id="" ng-model="name">
@@ -33,12 +33,23 @@
 					<th>Har lärt mig</th>
 				</tr>
 				<tr>
-					<td ng-repeat="sub in subject track by $index | filter:search" ng-if="subject == 1"><input  type="submit" name="" id="button" value="React" ng-click="" ng-hide="">{{sub.name}}</td>
-					<td ng-repeat="sub in subject track by $index | filter:search" ng-if="subject == 2">{{sub.name}}<input type="submit" name="" id="button2" value="Jasmine"></td>
-					<td ng-repeat="sub in subject track by $index | filter:search" ng-if="subject == 3">{{sub.name}}<input type="submit" name="" id="button2" value="Jasmine"></td>
+					<div ng-repeat="sub in subject track by $index">
+						<td><button>{{sub.name}}</button></td>
+					</div>
+					<div g-repeat="sub in subject track by $index | filter:search" ng-if="subject == 2">
+					<td n>{{sub.name}}<input type="submit" name="" id="button2" ></td>
+					</div>
+					<div ng-repeat="sub in subject track by $index | filter:search" ng-if="subject == 3">
+						<td >{{sub.name}}<input type="submit" name="" id="button2" ></td>
+					</div>
 
 				</tr>
 			</table>	
+
+			
+			
+			
+			
 		</div>
 	</div>
 </body>
