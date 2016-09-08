@@ -24,6 +24,6 @@ module.exports = angular.module('app.service',[]).service('appService', function
 	}
 	this.updateSub = function(sub){
 		console.log("hit?");
-		$http.put('/api/update/' + sub._id, sub);
+		$http.put('/api/update/', sub);
 	}
 });
