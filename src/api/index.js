@@ -79,8 +79,6 @@ router.post('/post', function (req, res) {
 
 router.put('/update', function(req, res, next) {
 
-	console.log(req.body);
-
   var id = req.body._id;
   var obj = req.body;
 
