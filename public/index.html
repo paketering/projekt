@@ -60,7 +60,7 @@
                                  <tr><td>Länkar:</td><td> {{sub.links}}</td></tr>
                                  <tr><td>Komentar:</td><td> {{sub.notes}}</td></tr>
 
-                                        <tr><td><button  ng-click="deleteSub(sub._id)">Remove</button></td>
+                                        <tr><td><button ng-click="deleteSub($index)">Remove</button></td>
                                         <td><button  ng-click="editSub(sub._id); open();">Edit</button></td></tr>
 							</table>
 							</li>
