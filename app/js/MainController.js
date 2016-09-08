@@ -14,9 +14,12 @@ module.exports = angular.module('app.MainController',[]).controller('MainControl
 		$scope.status ="";
 		$scope.links ="";
 		$scope.note = "";
+		console.log(addSub);
 		appService.create(addSub);
 
 	}
+
+
 	$scope.deleteSub = function(d){
 			var removed = $scope.subject.splice(d,1);
 			//console.log(removed[0]._id);
@@ -39,6 +42,26 @@ module.exports = angular.module('app.MainController',[]).controller('MainControl
   	$scope.open = function(){
   		$scope.visa = !$scope.visa;
   	};
+  	/*$scope.deleteSub = function(i) {
+
+			$http({
+
+				method: 'delete',
+				url: '/api/delete' + i
+
+			}).then(function successCallback(response) {
+
+				console.log(response.data);
+				console.log("delete");
+
+			}, function errorCallback(response) {
+				console.log("Error!");
+			});
+
+			refresh();
+
+		}*/
+
 
 
 

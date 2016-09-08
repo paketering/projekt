@@ -19,6 +19,8 @@ router.get('/subject', function(req, res, next) {
 	});
 });
 
+
+
 //get request på api/subject/id
 router.get('/subject/:id', function(req, res, next) {
 
@@ -39,7 +41,8 @@ router.delete('/delete/:id', function(req, res, next) {
 	});
 });
 
-router.post('/post', function(req, res, next) {
+
+/*router.post('/post', function(req, res, next) {
 
 	var name = req.body.name;
 	var prio = parseInt(req.body.prio);
@@ -61,6 +64,17 @@ router.post('/post', function(req, res, next) {
 		res.end();
 
   });
+});*/
+router.post('/post', function (req, res) {
+	console.log(req.body);
+	Subject.create(req.body, function(err, newDoc){
+	if(err) {
+		return console.error('Error:' + err);
+	} else {
+		
+	}
+	});
+	
 });
 
 router.put('/update', function(req, res, next) {

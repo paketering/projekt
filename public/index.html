@@ -11,35 +11,77 @@
 
 	</head>
 <body>
+<h1>livereload works</h1>
 	<div ng-app="app">
-	<div ng-controller="MainController">
-		<h1>livereload works</h1>
+		<div ng-controller="MainController">
+		<div ng-repeat="sub in subject track by $index" > 
+			<button>{{sub.name}}</button>
+		</div>
 		<form>
-			<label>Lägg till nytt ämne</label>
-			<br>
-			<input type="text" name="" id="" ng-model="name">
-			<label>Det har prioritet:</label>
-			<input type="text" name="" ng-model="prio">
-			  <label>Det har status:</label>
-            <input type="text" name="" id="" ng-model="status">
-            <input type="" name="" ng-model="links" placeholder="Links">
-            <textarea ng-model="notes"></textarea>
-            <input type="submit" name="" value="Lägg till" ng-click="add()">
-		</form>
-			<table  >
+				<label>Lägg till nytt ämne</label>
+				<br>
+				<input type="text" name="" id="" ng-model="name">
+				<label>Det har prioritet:</label>
+				<input type="text" name="" ng-model="prio">
+				  <label>Det har status:</label>
+	            <input type="text" name="" id="" ng-model="status">
+	            <input type="" name="" ng-model="links" placeholder="Links">
+	            <textarea ng-model="notes"></textarea>
+	            <input type="submit" name="" value="Lägg till" ng-click="add()">
+			</form>
+			<table >
 				<tr>
 					<th>Vill jag kunna</th>
 					<th>Håller på med</th>
 					<th>Har lärt mig</th>
 				</tr>
-				<tr>
-					<td><input  type="submit" name="" id="button" value="React" ng-click="" ng-hide=""></td>
-					<td><input type="submit" name="" id="button2" value="Jasmine"></td>
 
-				</tr>
 			</table>	
+					<ul ng-repeat="sub in subject| filter:search" ng-if="sub.prio == 1">
+						<li><button ng-click="button = !button">{{sub.name}}</button></li>
+						<li ng-show="button">
+							<table>
+								<tr><td>Prioritet:</td><td>{{sub.prio}}</td></tr>
+                                 <tr><td>Status:</td><td> {{sub.status}}</td></tr>
+                                 <tr><td>Länkar:</td><td> {{sub.links}}</td></tr>
+                                 <tr><td>Komentar:</td><td> {{sub.notes}}</td></tr>
+
+                                        <tr><td><button  ng-click="deleteSub(sub._id)">Remove</button></td>
+                                        <td><button  ng-click="editSub(sub._id); open();">Edit</button></td></tr>
+							</table>
+							</li>
+					</ul>
+					<ul ng-repeat="sub in subject | filter:search" ng-if="sub.prio == 2">
+						<li><button ng-click="button = !button">{{sub.name}}</button></li>
+						<li ng-show="button">
+							<table>
+								<tr><td>Prioritet:</td><td>{{sub.prio}}</td></tr>
+                                 <tr><td>Status:</td><td> {{sub.status}}</td></tr>
+                                 <tr><td>Länkar:</td><td> {{sub.links}}</td></tr>
+                                 <tr><td>Komentar:</td><td> {{sub.notes}}</td></tr>
+
+                                        <tr><td><button ng-click="deleteSub($index)">Remove</button></td>
+                                        <td><button  ng-click="editSub(sub._id); open();">Edit</button></td></tr>
+							</table>
+							</li>
+					</ul>
+					<ul ng-repeat="sub in subject | filter:search" ng-if="sub.prio == 3">
+						<li><button ng-click="button = !button">{{sub.name}}</button></li>
+						<li ng-show="button">
+							<table>
+								<tr><td>Prioritet:</td><td>{{sub.prio}}</td></tr>
+                                 <tr><td>Status:</td><td> {{sub.status}}</td></tr>
+                                 <tr><td>Länkar:</td><td> {{sub.links}}</td></tr>
+                                 <tr><td>Komentar:</td><td> {{sub.notes}}</td></tr>
+
+                                        <tr><td><button  ng-click="deleteSub(sub._id)">Remove</button></td>
+                                        <td><button  ng-click="editSub(sub._id); open();">Edit</button></td></tr>
+							</table>
+							</li>
+					</ul>
 			
-	</div>
+			
+		</div>
 	</div>
 </body>
 </html>

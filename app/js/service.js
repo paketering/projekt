@@ -8,7 +8,7 @@ module.exports = angular.module('app.service',[]).service('appService', function
 			url: '/api/subject'
 		}).then(function successCallback(response) {
 			//console.log(response.data);
-		    callback(response.data.weeks);
+		    callback(response.data);
 		}, function errorCallback(response) {
 		});
 	}
@@ -20,7 +20,7 @@ module.exports = angular.module('app.service',[]).service('appService', function
 		$http.post('/api/post', data);
 	}
 	this.subDelete = function(data){
-		$http.delete('/api/delete' + data);
+		$http.delete('/api/delete/' + data);
 	}
 	this.updateSub = function(week){
 		console.log("hit?");
