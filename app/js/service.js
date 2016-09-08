@@ -22,8 +22,8 @@ module.exports = angular.module('app.service',[]).service('appService', function
 	this.subDelete = function(data){
 		$http.delete('/api/delete/' + data);
 	}
-	this.updateSub = function(week){
+	this.updateSub = function(sub){
 		console.log("hit?");
-		$http.put('/api/update' + week._id, week);
+		$http.put('/api/update/' + sub._id, sub);
 	}
 });

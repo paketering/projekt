@@ -42,7 +42,7 @@ router.delete('/delete/:id', function(req, res, next) {
 });
 
 
-/*router.post('/post', function(req, res, next) {
+router.post('/post', function(req, res, next) {
 
 	var name = req.body.name;
 	var prio = parseInt(req.body.prio);
@@ -64,24 +64,13 @@ router.delete('/delete/:id', function(req, res, next) {
 		res.end();
 
   });
-});*/
-router.post('/post', function (req, res) {
-	console.log(req.body);
-	Subject.create(req.body, function(err, newDoc){
-	if(err) {
-		return console.error('Error:' + err);
-	} else {
-		
-	}
-	});
-	
 });
 
 router.put('/update', function(req, res, next) {
 
-  var id = req.body._id;
-  var obj = req.body;
-
+  	var id = req.body._id;
+ 	var obj = req.body;
+  
 	/*
 	var testId = "57ceb48a966f73a1200f9780";
 	var testObj = {
@@ -91,6 +80,7 @@ router.put('/update', function(req, res, next) {
 	}
 	*/
 
+	
 	Subject.findByIdAndUpdate(id, obj, function (err, updated) {
 
   		if (err) return handleError(err);
@@ -98,6 +88,7 @@ router.put('/update', function(req, res, next) {
       res.json(updated);
 
 	});
+
 });
 
 module.exports = router;
