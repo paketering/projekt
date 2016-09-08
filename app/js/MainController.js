@@ -27,15 +27,12 @@ module.exports = angular.module('app.MainController',[]).controller('MainControl
 		}
 	$scope.editSub = function(i){
 		//console.log($scope.weekPlan[i]);
-		$scope.subject[i].editName = false;
-		$scope.subject[i].editPrio = false;
-		$scope.subject[i].editLinks = false;
-		$scope.subject[i].editNote = false;
-
-
+		$scope.subject[i].edit = false;
+		
 		console.log($scope.subject[i]);
 		// save in database
 		appService.updateSub($scope.subject[i]);
+		
 	}
 
   	$scope.visa = false;

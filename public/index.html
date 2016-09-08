@@ -22,10 +22,10 @@
 				<br>
 				<input type="text" name="" id="" ng-model="name">
 				<label>Det har prioritet:</label>
-				<input type="text" name="" ng-model="prio">
+				<input type="number" name="" ng-model="prio">
 				  <label>Det har status:</label>
-	            <input type="text" name="" id="" ng-model="status">
-	            <input type="" name="" ng-model="links" placeholder="Links">
+	            <input type="number" name="" id="" ng-model="status">
+	            <input type="text" name="" ng-model="links" placeholder="Links">
 	            <textarea ng-model="notes"></textarea>
 	            <input type="submit" name="" value="Lägg till" ng-click="add()">
 			</form>
@@ -41,13 +41,35 @@
 						<li><button ng-click="button = !button">{{sub.name}}</button></li>
 						<li ng-show="button">
 							<table>
-								<tr><td>Prioritet:</td><td>{{sub.prio}}</td></tr>
-                                 <tr><td>Status:</td><td> {{sub.status}}</td></tr>
-                                 <tr><td>Länkar:</td><td> {{sub.links}}</td></tr>
-                                 <tr><td>Komentar:</td><td> {{sub.notes}}</td></tr>
+								<tr>
+									<td>Prioritet:</td>
+									<td ng-hide="sub.edit">{{sub.prio}}<input type="number" name="" ng-show="sub.edit" ng-model="sub.prio"></td>
+								</tr>
+                                 <tr>
+                                 	<td>Status:</td>
+                                 	<td ng-hide="sub.edit"> {{sub.status}}</td>
+                                 	<td><input type="number" name="" ng-show="sub.edit" ng-model="sub.status"></td>
+                                 </tr>
+                                 
+                                 <tr>
+                                 	<td>Länkar:</td>
+                                 	<td ng-hide="sub.edit"> {{sub.links}}</td>
+                                 	<td><input type="text" name="" ng-show="sub.edit" ng-model="sub.links"></td>
+                                 </tr>
+                                 <tr>
+                                 	<td>Komentar:</td>
+                                 	<td ng-hide="sub.edit"> {{sub.notes}}</td>
+                                 	<td><textarea ng-show="sub.edit" ng-model="sub.note"></textarea></td>
+                                 </tr>
 
-                                        <tr><td><button  ng-click="deleteSub(sub._id)">Remove</button></td>
-                                        <td><button  ng-click="editSub(sub._id); open();">Edit</button></td></tr>
+                                 <tr>
+                                 	<td><button ng-click="deleteSub(sub._id)">Remove</button></td>
+                                    <td>
+                                    	<button ng-hide="sub.edit" ng-click="sub.edit = !sub.edit; open();">Edit</button>
+                                    	<button ng-show="sub.edit" ng-click="editSub($index)">Save</button>
+                                    </td>
+                                    
+                                 </tr>
 							</table>
 							</li>
 					</ul>
