@@ -37,7 +37,7 @@
 				</tr>
 
 			</table>	
-					<ul ng-repeat="sub in subject| filter:{status:2}">
+					<ul ng-repeat="sub in subject| filter:{'status': 2}">
 						<li><button ng-click="button = !button">{{sub.name}}</button></li>
 						<li ng-show="button">
 						    <ul>
