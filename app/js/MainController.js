@@ -4,6 +4,7 @@ module.exports = angular.module('app.MainController',[]).controller('MainControl
   // $scope.message = "angular works!"
 	appService.loadData(function(response) {
 			$scope.subject = response; // weekPlan is whole response. 
+			console.log($scope.subject);
 		});
 
 	$scope.add = function(){
@@ -28,12 +29,15 @@ module.exports = angular.module('app.MainController',[]).controller('MainControl
 	$scope.editSub = function(i){
 		//console.log($scope.weekPlan[i]);
 		$scope.subject[i].edit = false;
+	//	$scope.subject[i].edit2 = false;
+
 		
 		console.log($scope.subject[i]);
 		// save in database
 		appService.updateSub($scope.subject[i]);
 		
 	}
+
 
   	$scope.visa = false;
   	$scope.open = function(){

@@ -37,72 +37,24 @@
 				</tr>
 
 			</table>	
-					<ul ng-repeat="sub in subject| filter:search" ng-if="sub.prio == 1">
+					<ul ng-repeat="sub in subject| filter:{status:2}">
 						<li><button ng-click="button = !button">{{sub.name}}</button></li>
 						<li ng-show="button">
-							<table>
-								<tr>
-									<td>Prioritet:</td>
-									<td ng-hide="sub.edit">{{sub.prio}}<input type="number" name="" ng-show="sub.edit" ng-model="sub.prio"></td>
-								</tr>
-                                 <tr>
-                                 	<td>Status:</td>
-                                 	<td ng-hide="sub.edit"> {{sub.status}}</td>
-                                 	<td><input type="number" name="" ng-show="sub.edit" ng-model="sub.status"></td>
-                                 </tr>
-                                 
-                                 <tr>
-                                 	<td>Länkar:</td>
-                                 	<td ng-hide="sub.edit"> {{sub.links}}</td>
-                                 	<td><input type="text" name="" ng-show="sub.edit" ng-model="sub.links"></td>
-                                 </tr>
-                                 <tr>
-                                 	<td>Komentar:</td>
-                                 	<td ng-hide="sub.edit"> {{sub.notes}}</td>
-                                 	<td><textarea ng-show="sub.edit" ng-model="sub.note"></textarea></td>
-                                 </tr>
-
-                                 <tr>
-                                 	<td><button ng-click="deleteSub(sub._id)">Remove</button></td>
-                                    <td>
-                                    	<button ng-hide="sub.edit" ng-click="sub.edit = !sub.edit; open();">Edit</button>
-                                    	<button ng-show="sub.edit" ng-click="editSub($index)">Save</button>
-                                    </td>
-                                    
-                                 </tr>
-							</table>
-							</li>
-					</ul>
-					<ul ng-repeat="sub in subject | filter:search" ng-if="sub.prio == 2">
-						<li><button ng-click="button = !button">{{sub.name}}</button></li>
-						<li ng-show="button">
-							<table>
-								<tr><td>Prioritet:</td><td>{{sub.prio}}</td></tr>
-                                 <tr><td>Status:</td><td> {{sub.status}}</td></tr>
-                                 <tr><td>Länkar:</td><td> {{sub.links}}</td></tr>
-                                 <tr><td>Komentar:</td><td> {{sub.notes}}</td></tr>
-
-                                        <tr><td><button ng-click="deleteSub($index)">Remove</button></td>
-                                        <td><button  ng-click="editSub(sub._id); open();">Edit</button></td></tr>
-							</table>
-							</li>
-					</ul>
-					<ul ng-repeat="sub in subject | filter:search" ng-if="sub.prio == 3">
-						<li><button ng-click="button = !button">{{sub.name}}</button></li>
-						<li ng-show="button">
-							<table>
-								<tr><td>Prioritet:</td><td>{{sub.prio}}</td></tr>
-                                 <tr><td>Status:</td><td> {{sub.status}}</td></tr>
-                                 <tr><td>Länkar:</td><td> {{sub.links}}</td></tr>
-                                 <tr><td>Komentar:</td><td> {{sub.notes}}</td></tr>
-
-                                        <tr><td><button  ng-click="deleteSub(sub._id)">Remove</button></td>
-                                        <td><button  ng-click="editSub(sub._id); open();">Edit</button></td></tr>
-							</table>
-							</li>
-					</ul>
-			
-			
+						    <ul>
+									<li>Prioritet:</li>
+									<li ng-hide="sub.edit">{{sub.prio}}<input type="number" name="" ng-show="sub.edit" ng-model="sub.prio"></td>
+                                 	<li ng-hide="sub.edit">Status: {{sub.status}}</li>
+                                 	<li><input type="number" name="" ng-show="sub.edit" ng-model="sub.status"></li>
+                                 	<li ng-hide="sub.edit">Länkar: {{sub.links}}</li>
+                                 	<li><input type="text" name="" ng-show="sub.edit" ng-model="sub.links"></li>
+                                 	<li ng-hide="sub.edit">Komentar: {{sub.notes}}</li>
+                                 	<li><textarea ng-show="sub.edit" ng-model="sub.note"></textarea></li>
+                                 	<button ng-click="deleteSub(sub._id)">Remove</button>
+                                    <button ng-hide="sub.edit" ng-click="sub.edit = !sub.edit; open();">Edit</button>
+                                    <button ng-show="sub.edit" ng-click="editSub($index)">Save</button>               
+							</ul>
+					</ul>		
+					
 		</div>
 	</div>
 </body>
