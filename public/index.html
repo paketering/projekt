@@ -6,40 +6,34 @@
 
 		<title></title>
 		<meta charset="utf-8" />
-		<link href="css/style.css" rel="stylesheet" />
-    <script src="scripts/main.js"></script>
+		<link href="css/style.css" rel="stylesheet"/>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="scripts/main.js"></script>
 
 	</head>
 <body>
 <h1>livereload works</h1>
-	<div ng-app="app">
+	<div class="container" ng-app="app">
 		<div ng-controller="MainController">
-		<div ng-repeat="sub in subject track by $index" > 
-			<button>{{sub.name}}</button>
-		</div>
-		<form>
-				<label>Lägg till nytt ämne</label>
-				<br>
-				<input type="text" name="" id="" ng-model="name">
-				<label>Det har prioritet:</label>
-				<input type="number" name="" ng-model="prio">
-				  <label>Det har status:</label>
-	            <input type="number" name="" id="" ng-model="status">
-	            <input type="text" name="" ng-model="links" placeholder="Links">
-	            <textarea ng-model="notes"></textarea>
-	            <input type="submit" name="" value="Lägg till" ng-click="add()">
-			</form>
-			<table >
-				<tr>
-					<th>Vill jag kunna</th>
-					<th>Håller på med</th>
-					<th>Har lärt mig</th>
-				</tr>
-
-			</table>
-				<div class="partens">	
-					<ul ng-repeat="sub in subject" ng-if="sub.status === 1">
-						<li><button ng-click="button = !button">{{sub.name}}</button></li>
+		
+			<div class="container">
+ 			 <div class="row">
+    			<div class="col-sm-4">
+      				<h3>Vill jag kunna</h3>
+    			</div>
+    			<div class="container">
+ 			 <div class="row">
+    			<div class="col-sm-4">
+      				<h3>Håller på med</h3>
+    			</div>
+    			<div class="row">
+    			<div class="col-sm-4">
+      				<h3>Har lärt mig</h3>
+    			</div>
+				<div class="row">	
+					<ul class="col-sm-4" ng-repeat="sub in subject" ng-if="sub.status === 1">
+						<li><button class="btn btn-primary" ng-click="button = !button">{{sub.name}}</button></li>
 						<li ng-show="button">
 						    <ul>
 									<li>Prioritet:</li>
@@ -51,14 +45,12 @@
                                  	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Komentar: {{sub.notes}}</li>
                                  	<li><textarea ng-show="sub.edit" ng-blur="editSub($index)" ng-model="sub.notes"></textarea></li>
                                  	<button ng-click="deleteSub($index)">Remove</button>
-                                    <button ng-hide="sub.edit" ng-click="sub.edit = !sub.edit; open();">Edit</button>
-                                    <button ng-show="sub.edit" ng-click="editSub($index)">Save</button>               
 							</ul>
 					</ul>	
 				
 				
-					<ul ng-repeat="sub in subject" ng-if="sub.status === 2">
-						<li><button ng-click="button = !button">{{sub.name}}</button></li>
+					<ul class="col-sm-4" ng-repeat="sub in subject" ng-if="sub.status === 2">
+						<li><button  class="btn btn-info" ng-click="button = !button">{{sub.name}}</button></li>
 						<li ng-show="button">
 						    <ul>
 									<li>Prioritet:</li>
@@ -69,15 +61,13 @@
                                  	<li><input ng-blur="editSub($index)" type="text" name="" ng-blur="editSub($index)" ng-show="sub.edit" ng-model="sub.links"></li>
                                  	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Komentar: {{sub.notes}}</li>
                                  	<li><textarea ng-show="sub.edit" ng-blur="editSub($index)" ng-model="sub.notes"></textarea></li>
-                                 	<button ng-click="deleteSub($index)">Remove</button>
-                                    <button ng-hide="sub.edit" ng-click="sub.edit = !sub.edit; open();">Edit</button>
-                                    <button ng-show="sub.edit" ng-click="editSub($index)">Save</button>               
+                                 	<button ng-click="deleteSub($index)">Remove</button>      
 							</ul>
 					</ul>		
 		
 		
-					<ul ng-repeat="sub in subject" ng-if="sub.status === 3">
-						<li><button ng-click="button = !button">{{sub.name}}</button></li>
+					<ul class="col-sm-4" ng-repeat="sub in subject" ng-if="sub.status === 3">
+						<li><button class="btn btn-success" ng-click="button = !button">{{sub.name}}</button></li>
 						<li ng-show="button">
 						    <ul>
 									<li>Prioritet:</li>
@@ -88,12 +78,24 @@
                                  	<li><input ng-blur="editSub($index)" type="text" name="" ng-blur="editSub($index)" ng-show="sub.edit" ng-model="sub.links"></li>
                                  	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Komentar: {{sub.notes}}</li>
                                  	<li><textarea ng-show="sub.edit" ng-blur="editSub($index)" ng-model="sub.notes"></textarea></li>
-                                 	<button ng-click="deleteSub($index)">Remove</button>
-                                    <button ng-hide="sub.edit" ng-click="sub.edit = !sub.edit; open();">Edit</button>
-                                    <button ng-show="sub.edit" ng-click="editSub($index)">Save</button>               
+                                 	<button  class="btn btn-primary"  ng-click="deleteSub($index)">Remove</button>      
 							</ul>
 					</ul>		
-					</div>
+				</div>
+				<form>
+				<label for="focusedInput" >Lägg till nytt ämne</label>
+				<br>
+				<input class="form-control" id="pwd" type="text" name="" id="" ng-model="name">
+				<label for="focusedInput">Det har prioritet:</label>
+				<input class="form-control" type="number" name="" ng-model="prio">
+				  <label for="focusedInput">Det har status:</label>
+	            <input class="form-control" type="number" name="" id="" ng-model="status">
+	            <label for="focusedInput">Det har länk:</label>
+	            <input class="form-control" type="text" name="" ng-model="links" placeholder="Links">
+	             <label for="focusedInput">Det har text:</label>
+	            <textarea class = "form-control" rows = "3" ng-model="notes"></textarea>
+	            <input class="btn btn-primary active" type="submit" name="" value="Lägg till" ng-click="add()">
+			</form>
 					
 				
 			</div>
