@@ -36,25 +36,67 @@
 					<th>Har lärt mig</th>
 				</tr>
 
-			</table>	
-					<ul ng-repeat="sub in subject| filter:{'status': 2}">
+			</table>
+				<div class="partens">	
+					<ul ng-repeat="sub in subject" ng-if="sub.status === 1">
 						<li><button ng-click="button = !button">{{sub.name}}</button></li>
 						<li ng-show="button">
 						    <ul>
 									<li>Prioritet:</li>
-									<li ng-hide="sub.edit">{{sub.prio}}<input type="number" name="" ng-show="sub.edit" ng-model="sub.prio"></td>
-                                 	<li ng-hide="sub.edit">Status: {{sub.status}}</li>
-                                 	<li><input type="number" name="" ng-show="sub.edit" ng-model="sub.status"></li>
-                                 	<li ng-hide="sub.edit">Länkar: {{sub.links}}</li>
-                                 	<li><input type="text" name="" ng-show="sub.edit" ng-model="sub.links"></li>
-                                 	<li ng-hide="sub.edit">Komentar: {{sub.notes}}</li>
-                                 	<li><textarea ng-show="sub.edit" ng-model="sub.note"></textarea></li>
-                                 	<button ng-click="deleteSub(sub._id)">Remove</button>
+									<li ng-hide="sub.edit" ng-click="sub.edit = !sub.edit">{{sub.prio}}<input type="number" name="" ng-show="sub.edit" ng-model="sub.prio" ng-blur="editSub($index)"></li>
+                                 	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Status: {{sub.status}}</li>
+                                 	<li><input type="number" name="" ng-show="sub.edit" ng-blur="editSub($index)" ng-model="sub.status"></li>
+                                 	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Länkar: {{sub.links}}</li>
+                                 	<li><input ng-blur="editSub($index)" type="text" name="" ng-blur="editSub($index)" ng-show="sub.edit" ng-model="sub.links"></li>
+                                 	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Komentar: {{sub.notes}}</li>
+                                 	<li><textarea ng-show="sub.edit" ng-blur="editSub($index)" ng-model="sub.notes"></textarea></li>
+                                 	<button ng-click="deleteSub($index)">Remove</button>
+                                    <button ng-hide="sub.edit" ng-click="sub.edit = !sub.edit; open();">Edit</button>
+                                    <button ng-show="sub.edit" ng-click="editSub($index)">Save</button>               
+							</ul>
+					</ul>	
+				
+				
+					<ul ng-repeat="sub in subject" ng-if="sub.status === 2">
+						<li><button ng-click="button = !button">{{sub.name}}</button></li>
+						<li ng-show="button">
+						    <ul>
+									<li>Prioritet:</li>
+									<li ng-hide="sub.edit" ng-click="sub.edit = !sub.edit">{{sub.prio}}<input type="number" name="" ng-show="sub.edit" ng-model="sub.prio" ng-blur="editSub($index)"></li>
+                                 	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Status: {{sub.status}}</li>
+                                 	<li><input type="number" name="" ng-show="sub.edit" ng-blur="editSub($index)" ng-model="sub.status"></li>
+                                 	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Länkar: {{sub.links}}</li>
+                                 	<li><input ng-blur="editSub($index)" type="text" name="" ng-blur="editSub($index)" ng-show="sub.edit" ng-model="sub.links"></li>
+                                 	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Komentar: {{sub.notes}}</li>
+                                 	<li><textarea ng-show="sub.edit" ng-blur="editSub($index)" ng-model="sub.notes"></textarea></li>
+                                 	<button ng-click="deleteSub($index)">Remove</button>
                                     <button ng-hide="sub.edit" ng-click="sub.edit = !sub.edit; open();">Edit</button>
                                     <button ng-show="sub.edit" ng-click="editSub($index)">Save</button>               
 							</ul>
 					</ul>		
+		
+		
+					<ul ng-repeat="sub in subject" ng-if="sub.status === 3">
+						<li><button ng-click="button = !button">{{sub.name}}</button></li>
+						<li ng-show="button">
+						    <ul>
+									<li>Prioritet:</li>
+									<li ng-hide="sub.edit" ng-click="sub.edit = !sub.edit">{{sub.prio}}<input type="number" name="" ng-show="sub.edit" ng-model="sub.prio" ng-blur="editSub($index)"></li>
+                                 	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Status: {{sub.status}}</li>
+                                 	<li><input type="number" name="" ng-show="sub.edit" ng-blur="editSub($index)" ng-model="sub.status"></li>
+                                 	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Länkar: {{sub.links}}</li>
+                                 	<li><input ng-blur="editSub($index)" type="text" name="" ng-blur="editSub($index)" ng-show="sub.edit" ng-model="sub.links"></li>
+                                 	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Komentar: {{sub.notes}}</li>
+                                 	<li><textarea ng-show="sub.edit" ng-blur="editSub($index)" ng-model="sub.notes"></textarea></li>
+                                 	<button ng-click="deleteSub($index)">Remove</button>
+                                    <button ng-hide="sub.edit" ng-click="sub.edit = !sub.edit; open();">Edit</button>
+                                    <button ng-show="sub.edit" ng-click="editSub($index)">Save</button>               
+							</ul>
+					</ul>		
+					</div>
 					
+				
+			</div>
 		</div>
 	</div>
 </body>
