@@ -29,4 +29,11 @@ table {
   background-color: #008000;
   /* Green */ }
 
+.partens {
+  display: flex;
+  display: -webkit-flex; }
+
+ul {
+  display: inline; }
+
 /*# sourceMappingURL=style.css.map */
