@@ -53,10 +53,7 @@ module.exports = angular.module('app.MainController',[]).controller('MainControl
   		$scope.visa = !$scope.visa;
   	};
 
-  	$scope.clicked = function(){   
-
-        $location.path('/public/update.html');
-    }
+  	
   	/*$scope.deleteSub = function(i) {
 
 			$http({
