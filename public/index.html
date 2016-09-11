@@ -10,7 +10,6 @@
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="scripts/main.js"></script>
-
 	</head>
 <body>
 <h1>livereload works</h1>
@@ -31,41 +30,41 @@
     			<div class="col-sm-4">
       				<h3>Har lärt mig</h3>
     			</div>
-				<div class="row">	
+ 				<div class="row" >
 					<ul class="col-sm-4" ng-repeat="sub in subject" ng-if="sub.status === 1">
-						<li><button class="btn btn-primary" ng-click="button = !button">{{sub.name}}</button></li>
+						<li ><button class="btn btn-primary" ng-click="button = !button">{{sub.name}}</button></li>
 						<li ng-show="button">
 						    <ul>
 									<li>Prioritet:</li>
 									<li ng-hide="sub.edit" ng-click="sub.edit = !sub.edit">{{sub.prio}}<input type="number" name="" ng-show="sub.edit" ng-model="sub.prio" ng-blur="editSub($index)"></li>
                                  	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Status: {{sub.status}}</li>
                                  	<li><input type="number" name="" ng-show="sub.edit" ng-blur="editSub($index)" ng-model="sub.status"></li>
-                                 	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Länkar: {{sub.links}}</li>
+                                 	<div ng-repeat="t  in sub.links">
+                                 		<li><p>Länkar: <a   ng-hide="sub.edit" ng-click="sub.edit = !sub.edit" href='{{t}}' target="_blank">{{t}}</a><input ng-blur="editSub($index)" type="text" name="" ng-blur="editSub($index)" ng-show="sub.edit" ng-model="sub.links"></p></li>
+                                 	</div>
                                  	<li><input ng-blur="editSub($index)" type="text" name="" ng-blur="editSub($index)" ng-show="sub.edit" ng-model="sub.links"></li>
                                  	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Komentar: {{sub.notes}}</li>
                                  	<li><textarea ng-show="sub.edit" ng-blur="editSub($index)" ng-model="sub.notes"></textarea></li>
                                  	<button ng-click="deleteSub($index)">Remove</button>
+                           
 							</ul>
 					</ul>	
-				
-				
 					<ul class="col-sm-4" ng-repeat="sub in subject" ng-if="sub.status === 2">
-						<li><button  class="btn btn-info" ng-click="button = !button">{{sub.name}}</button></li>
+						<li ><button  class="btn btn-info" ng-click="button = !button">{{sub.name}}</button></li>
 						<li ng-show="button">
 						    <ul>
 									<li>Prioritet:</li>
 									<li ng-hide="sub.edit" ng-click="sub.edit = !sub.edit">{{sub.prio}}<input type="number" name="" ng-show="sub.edit" ng-model="sub.prio" ng-blur="editSub($index)"></li>
                                  	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Status: {{sub.status}}</li>
                                  	<li><input type="number" name="" ng-show="sub.edit" ng-blur="editSub($index)" ng-model="sub.status"></li>
-                                 	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Länkar: {{sub.links}}</li>
-                                 	<li><input ng-blur="editSub($index)" type="text" name="" ng-blur="editSub($index)" ng-show="sub.edit" ng-model="sub.links"></li>
+                                 	<div ng-repeat="t  in sub.links">
+                                 		<li><p>Länkar: <a   ng-hide="sub.edit" ng-click="sub.edit = !sub.edit" href='{{t}}' target="_blank">{{t}}</a><input ng-blur="editSub($index)" type="text" name="" ng-blur="editSub($index)" ng-show="sub.edit" ng-model="sub.links"></p></li>
+                                 	</div>
                                  	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Komentar: {{sub.notes}}</li>
                                  	<li><textarea ng-show="sub.edit" ng-blur="editSub($index)" ng-model="sub.notes"></textarea></li>
                                  	<button ng-click="deleteSub($index)">Remove</button>      
 							</ul>
 					</ul>		
-		
-		
 					<ul class="col-sm-4" ng-repeat="sub in subject" ng-if="sub.status === 3">
 						<li><button class="btn btn-success" ng-click="button = !button">{{sub.name}}</button></li>
 						<li ng-show="button">
@@ -74,14 +73,16 @@
 									<li ng-hide="sub.edit" ng-click="sub.edit = !sub.edit">{{sub.prio}}<input type="number" name="" ng-show="sub.edit" ng-model="sub.prio" ng-blur="editSub($index)"></li>
                                  	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Status: {{sub.status}}</li>
                                  	<li><input type="number" name="" ng-show="sub.edit" ng-blur="editSub($index)" ng-model="sub.status"></li>
-                                 	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Länkar: {{sub.links}}</li>
-                                 	<li><input ng-blur="editSub($index)" type="text" name="" ng-blur="editSub($index)" ng-show="sub.edit" ng-model="sub.links"></li>
+                                 	<div ng-repeat="t  in sub.links">
+                                 		<li><p>Länkar: <a   ng-hide="sub.edit" ng-click="sub.edit = !sub.edit" href='{{t}}' target="_blank">{{t}}</a><input ng-blur="editSub($index)" type="text" name="" ng-blur="editSub($index)" ng-show="sub.edit" ng-model="sub.links"></p></li>
+                                 	</div>
                                  	<li ng-click="sub.edit = !sub.edit" ng-hide="sub.edit">Komentar: {{sub.notes}}</li>
                                  	<li><textarea ng-show="sub.edit" ng-blur="editSub($index)" ng-model="sub.notes"></textarea></li>
                                  	<button  class="btn btn-primary"  ng-click="deleteSub($index)">Remove</button>      
 							</ul>
 					</ul>		
-				</div>
+				<div >
+
 				<form>
 				<label for="focusedInput" >Lägg till nytt ämne</label>
 				<br>

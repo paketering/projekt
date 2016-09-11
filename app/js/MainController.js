@@ -8,7 +8,7 @@ module.exports = angular.module('app.MainController',[]).controller('MainControl
 		});
 
 	$scope.add = function(){
-		var addSub = { name:$scope.name, prio:$scope.prio, status:$scope.status, links:$scope.links, notes:$scope.notes };
+		var addSub = { name:$scope.name, prio:$scope.prio, status:$scope.status, links:[$scope.links], notes:$scope.notes };
 		$scope.subject.push(addSub);
 		$scope.name = "";
 		$scope.prio ="";
