@@ -8,7 +8,7 @@ module.exports = angular.module('app.MainController',[]).controller('MainControl
 		});
 
 	$scope.add = function(){
-		var addSub = { name:$scope.name, prio:$scope.prio, status:$scope.status, links:$scope.links, notes:$scope.notes };
+		var addSub = { name:$scope.name, prio:$scope.prio, status:$scope.status, links:[$scope.links], notes:$scope.notes };
 		$scope.subject.push(addSub);
 		$scope.name = "";
 		$scope.prio ="";
@@ -37,12 +37,26 @@ module.exports = angular.module('app.MainController',[]).controller('MainControl
 		appService.updateSub($scope.subject[i]);
 		
 	}
+	$scope.edit = function(pi, i){
+		//console.log($scope.weekPlan[i]);
+		//$scope.weekPlan[pi].editTitle = false;
+		$scope.subject[pi].t[i].editLink = false;
+	
+		console.log($scope.subject[i]);
+		// save in database
+		appService.updateSub($scope.subject[i]);
+	}
 
 
   	$scope.visa = false;
   	$scope.open = function(){
   		$scope.visa = !$scope.visa;
   	};
+
+  	$scope.clicked = function(){   
+
+        $location.path('/public/update.html');
+    }
   	/*$scope.deleteSub = function(i) {
 
 			$http({
