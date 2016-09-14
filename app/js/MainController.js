@@ -21,6 +21,7 @@ module.exports = angular.module('app.MainController',[]).controller('MainControl
 	}
 
 
+
 	$scope.deleteSub = function(d){
 			var removed = $scope.subject.splice(d,1);
 			//console.log(removed[0]._id);
@@ -70,3 +71,6 @@ module.exports = angular.module('app.MainController',[]).controller('MainControl
 
 
 });
+app.controller('HelloWorldController', ['$scope', function($scope) {
+$scope.greeting = 'Hello World!';
+}]);
