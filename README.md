@@ -31,12 +31,12 @@ DELETE | Delete         |  /api/delete/  |
 
 ### Automation tools:
 
-- **Gulp-task (rename, sass, watch, sourcemaps, browserify, source, browserSync, uglify, maps, del)
+- Gulp-task (rename, sass, watch, sourcemaps, browserify, source, browserSync, uglify, maps, del)
 
 ###unit test tools
 
-- **Mocha and Chai(back-end)
-- **Karma and Jasmine(front-end)
+- Mocha and Chai(back-end)
+- Karma and Jasmine(front-end)
 
 ### Run app
 
@@ -60,8 +60,14 @@ run gulp watch, livereload sass and html
 ```
 run testing with gulp 
 
-``shell
+```shell
  gulp test
 ```
+
+```shell
+ gulp tdd
+```
+
+
 
 
