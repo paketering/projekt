@@ -3,8 +3,6 @@ const angular = require('angular');
 module.exports = angular.module('app.service',[]).service('appService', function ($http) {
 
 
-
-
 	this.loadData = function(callback) {
 		$http({
 			method: 'GET',
@@ -32,3 +30,4 @@ module.exports = angular.module('app.service',[]).service('appService', function
 
 
 });
+

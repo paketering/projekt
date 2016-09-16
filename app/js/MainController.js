@@ -28,7 +28,7 @@ module.exports = angular.module('app.MainController',[]).controller('MainControl
 			appService.subDelete(removed[0]._id);
 		}
 	$scope.editSub = function(i){
-		//console.log($scope.weekPlan[i]);
+		//console.log($scope.subject[i]);
 		$scope.subject[i].edit = false;
 	//	$scope.subject[i].edit2 = false;
 
@@ -45,32 +45,8 @@ module.exports = angular.module('app.MainController',[]).controller('MainControl
   	$scope.open = function(){
   		$scope.visa = !$scope.visa;
   	};
-
   	
-  	/*$scope.deleteSub = function(i) {
-
-			$http({
-
-				method: 'delete',
-				url: '/api/delete' + i
-
-			}).then(function successCallback(response) {
-
-				console.log(response.data);
-				console.log("delete");
-
-			}, function errorCallback(response) {
-				console.log("Error!");
-			});
-
-			refresh();
-
-		}*/
-
-
-
+  
 
 });
-app.controller('HelloWorldController', ['$scope', function($scope) {
-$scope.greeting = 'Hello World!';
-}]);
+
